@@ -1,3 +1,4 @@
+#~*~ coding: utf8 ~*~
 import sys, cv2, numpy as np
 from os import listdir
 from os.path import isfile, join
@@ -28,9 +29,9 @@ class Worker(threading.Thread):
             sys.stdout.write("\n Поток №"+str(self.num)+": работаю над файлом "+filename)
 
 
-    dir = [ f for f in listdir ("img/") if isfile(join("img/", f))]
-    work_queue = Queue.Queue()
-    for file in dir:
+dir = [ f for f in listdir ("img/") if isfile(join("img/", f))]
+work_queue = Queue.Queue()
+for file in dir:
         work_queue.put(file)
 
     start = time.time()
